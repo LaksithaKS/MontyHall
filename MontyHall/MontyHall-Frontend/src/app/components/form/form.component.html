@@ -1,0 +1,37 @@
+<div class="col-md-12">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>The Monty Hall Problem</mat-card-title>
+    </mat-card-header>
+    <img class="img-responsive"style="width: 250px; height: 120px;" src="assets/montyImage.png">
+    <br>
+    <mat-card-actions>
+
+      <form [formGroup]="montyHallForm" (ngSubmit)="getResult()">
+        number of games : 
+        <mat-form-field class="reduce-width" width="20%">
+          <mat-label>Number</mat-label>
+          <input type="number" matInput formControlName="numberOfGames" min="0" width="20%">
+        </mat-form-field>
+        <br><br>
+        change the door :
+        <mat-checkbox class="example-margin" formControlName="changeTheDoor"></mat-checkbox>
+        <br><br>
+        <button type="submit" mat-raised-button color="primary">Start Game</button>
+      </form>
+
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="rightForm">
+  <br>
+  <div class="header-title">
+    <h1>Result</h1>
+  </div>
+  <p>Total Games: {{ Total }}</p>
+  <p>Win Count: {{ WinCount }}</p>
+  <p>Win Percentage: {{ (WinCount / Total) * 100 }}%</p>
+  <br>
+  <button type="submit" mat-raised-button color="warn" (click)="clearResult()">Close</button>
+</div>
